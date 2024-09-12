@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>View Account</title>
+</head>
+<body>
+    <h1>Customer Details</h1>
+    <p>ID: <span th:text="${cust.id}">ID</span></p>
+    <p>Name: <span th:text="${cust.name}">Name</span></p>
+    <p>Amount: <span th:text="${cust.amount}">Amount</span></p>
+    <p>Type: <span th:text="${cust.type}">Type</span></p>
+    
+    <h2>Withdraw/Deposit</h2>
+    <form th:action="@{/withdraw/{id}(id=${cust.id})}" method="post">
+        <label>Withdraw Amount:</label>
+        <input type="text" name="amount" /><br/>
+        <button type="submit">Withdraw</button>
+    </form>
+    <form th:action="@{/deposit/{id}(id=${cust.id})}" method="post">
+        <label>Deposit Amount:</label>
+        <input type="text" name="amount" /><br/>
+        <button type="submit">Deposit</button>
+    </form>
+</body>
+</html>
